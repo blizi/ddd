@@ -54,6 +54,14 @@
             </el-menu-item-group>
           </el-submenu>
 
+          <el-submenu index="8">
+            <template slot="title"><i class="el-icon-message"></i>我们的荣耀</template>
+            <el-menu-item-group>
+              <el-menu-item index="8-1" @click="viewHonor">查看</el-menu-item>
+              <el-menu-item index="8-1" @click="editHonor">编辑</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+
         </el-menu>
       </el-aside>
       <el-container>
@@ -110,6 +118,12 @@
       },
       vewArticle(){
         this.$router.push('/article/article-resolve')
+      },
+      viewHonor(){
+        this.$router.push('/honor/honor-view')
+      },
+      editHonor(){
+        this.$router.push('/honor/honor-edit')
       },
       logout(){
         console.log(1)

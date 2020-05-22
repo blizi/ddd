@@ -198,6 +198,26 @@ VueRouter.prototype.push = function push(location) {
           meta: { title: '解决方案', icon: 'list' }
         },
       ]
+    },
+    {
+      path: '/honor',
+      name: 'honor',
+      redirect:'/honor/honor-view',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+      children:[
+        {
+          path: 'honor-view',
+          component: () => import('@/views/viewHonor'),
+          name: 'honor-view',
+          meta: { title: '我们的荣耀', icon: 'list' }
+        },
+        {
+          path: 'honor-edit',
+          component: () => import('@/views/editHonor'),
+          name: 'honor-edit',
+          meta: { title: 'edit-我们的荣耀', icon: 'edit' }
+        },
+      ]
     }
 ]
 

@@ -76,6 +76,12 @@
                             size="small">
                         修改
                     </el-button>
+                    <el-button
+                            @click.native.prevent="articleEdit(scope.row)"
+                            type="text"
+                            size="small">
+                        文章管理
+                    </el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -115,6 +121,15 @@
             uploadImag
         },
         methods:{
+            articleEdit(a){
+                this.$router.push({
+                    path:'/menu/menu-list',
+                    query:{
+                        id:a.article.id,
+                        name:a.article.artTitle
+                    }
+                })
+            },
             showed(value){
                 if(value=='0'){
                     return '不展示'
