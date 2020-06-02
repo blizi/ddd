@@ -12,6 +12,11 @@
                     sortable>
             </el-table-column>
             <el-table-column
+                    prop="nav.router"
+                    label="路由"
+                    sortable>
+            </el-table-column>
+            <el-table-column
                     prop="nav.navDesc"
                     label="描述"
                     sortable>
@@ -97,6 +102,7 @@
                             id:val.row.nav.id,
                             desc:val.row.nav.navDesc,
                             name:val.row.nav.navName,
+                            router:val.row.nav.router
                     }
                 })
             }

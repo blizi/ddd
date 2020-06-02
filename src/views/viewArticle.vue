@@ -28,13 +28,18 @@
         <div style="height: 20px"></div>
         <el-button v-if="subfield" @click="cancel">取消</el-button>
         <el-button v-if="subfield" type="primary" @click="submit">保存</el-button>
+        <viewcomment :pId="id"/>
     </div>
 </template>
 
 <script>
     import {$post_header} from '../api'
+    import viewcomment from "./viewcomment";
     export default {
         name: "viewArticle",
+        components:{
+            viewcomment
+        },
         created() {
             if(this.$route.params.type){
                 //  add
@@ -43,7 +48,6 @@
                 this.toolbarsFlag = true;
                 this.disable = false;
                 this.editShow = false;
-                console.log(this.$route.params.parentId)
             }
         },
         methods:{

@@ -61,6 +61,13 @@
               <el-menu-item index="8-1" @click="editHonor">编辑</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
+<!--          <el-submenu index="9">-->
+<!--            <template slot="title"><i class="el-icon-message"></i>评论管理</template>-->
+<!--            <el-menu-item-group>-->
+<!--              <el-menu-item index="9-1" @click="viewComment">查看</el-menu-item>-->
+<!--&lt;!&ndash;              <el-menu-item index="9-1" @click="editHonor">编辑</el-menu-item>&ndash;&gt;-->
+<!--            </el-menu-item-group>-->
+<!--          </el-submenu>-->
 
         </el-menu>
       </el-aside>
@@ -125,8 +132,10 @@
       editHonor(){
         this.$router.push('/honor/honor-edit')
       },
+      viewComment(){
+        this.$router.push('/comment/comment-view')
+      },
       logout(){
-        console.log(1)
         this.$store.commit('updateToken',null);
         this.$store.commit('updateName',null);
         this.$router.push('/')

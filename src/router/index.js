@@ -78,6 +78,12 @@ VueRouter.prototype.push = function push(location) {
           component: () => import('../views/editLately'),
           name: 'lat-edit',
           meta: { title: '修改-我们最近的工作', icon: 'list' }
+        },
+        {
+          path: 'lat-info',
+          component: () => import('../views/infoLately'),
+          name: 'lat-info',
+          meta: { title: '二级页面-我们最近的工作', icon: 'list' }
         }
       ]
     },
@@ -217,6 +223,26 @@ VueRouter.prototype.push = function push(location) {
           name: 'honor-edit',
           meta: { title: 'edit-我们的荣耀', icon: 'edit' }
         },
+      ]
+    },
+    {
+      path: '/comment',
+      name: 'comment',
+      redirect:'/comment/comment-view',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+      children:[
+        {
+          path: 'comment-view',
+          component: () => import('@/views/viewcomment'),
+          name: 'comment-view',
+          meta: { title: '评论-list', icon: 'list' }
+        },
+        // {
+        //   path: 'honor-edit',
+        //   component: () => import('@/views/editHonor'),
+        //   name: 'honor-edit',
+        //   meta: { title: 'edit-我们的荣耀', icon: 'edit' }
+        // },
       ]
     }
 ]

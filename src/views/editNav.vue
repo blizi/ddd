@@ -23,6 +23,9 @@
         <el-form-item label="导航名称">
             <el-input v-model="name" placeholder="请输入内容"></el-input>
         </el-form-item>
+        <el-form-item label="路由名称">
+            <el-input v-model="routerName" placeholder="输入英文字段"></el-input>
+        </el-form-item>
         <el-form-item label="导航描述">
             <el-input v-model="desc" placeholder="请输入内容"></el-input>
         </el-form-item>
@@ -53,7 +56,8 @@
                 name:this.$route.query.name,
                 parentId:'',
                 desc:this.$route.query.desc,
-                disabled:false
+                disabled:false,
+                routerName:this.$route.query.router
             }
         },
         created() {
@@ -68,7 +72,8 @@
                     let data = {
                         id:this.$route.query.id,
                         navName:this.name,
-                        navDesc:this.desc
+                        navDesc:this.desc,
+                        router:this.routerName
                     };
                     $post_header('/admin/nav/updateById',this.qs.stringify(data)).then(res=>{
                         if(res.data.errorCode=='0000'){
@@ -94,7 +99,8 @@
                     navName:this.name,
                     navDesc:this.desc,
                     type:this.type,
-                    parentId:this.parentId
+                    parentId:this.parentId,
+                    router:this.routerName
                 }
                 console.log(data);
                 $post_header('/admin/nav/insert',this.qs.stringify(data)).then(res=>{

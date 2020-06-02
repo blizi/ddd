@@ -10,13 +10,14 @@
         </el-table-column>
         <el-table-column
                 prop="rotUrl"
-                label="轮播图">
+                label="轮播图1">
             <template slot-scope="scope">
                 <div class="demo-image">
                     <div class="block" >
                         <el-image
                             style="width: 100px; height: 100px"
                             :src="scope.row.rotUrl"
+                            :preview-src-list="scope.row.rotUrl"
                             ></el-image>
                     </div>
                 </div>

@@ -67,6 +67,12 @@
                         size="small">
                     修改
                 </el-button>
+                <el-button
+                        @click.native.prevent="updateInfo(scope.row)"
+                        type="text"
+                        size="small">
+                    内容编辑
+                </el-button>
             </template>
         </el-table-column>
     </el-table>
@@ -87,6 +93,16 @@
             })
         },
         methods:{
+            updateInfo(value){
+                console.log(value)
+                this.$router.push({
+                    path:'lat-info',
+                    query:{
+                        id:value.lately.id,
+                        name:value.lately.latName
+                    }
+                })
+            },
             show(value){
                 if(value=='0'){
                     return '不展示'

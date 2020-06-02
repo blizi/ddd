@@ -22,7 +22,7 @@
         </el-dialog>
 <!--update-->
         <el-dialog
-                title="添加"
+                title="更新"
                 :visible.sync="update"
                 width="50%">
             <span slot="footer" class="dialog-footer">
@@ -30,8 +30,8 @@
                 <el-button type="primary" @click="updateDate">确 定</el-button>
             </span>
             <el-form >
-                <el-form-item label="key">
-                    <el-input v-model="key" placeholder="建议输入英文"></el-input>
+                <el-form-item  label="key">
+                    <el-input disabled v-model="key" placeholder="建议输入英文"></el-input>
                 </el-form-item>
                 <el-form-item label="中文名">
                     <el-input v-model="desc"></el-input>
@@ -52,7 +52,7 @@
             </span>
             <el-form >
                 <el-form-item label="key">
-                    <el-input v-model="key" placeholder="建议输入英文"></el-input>
+                    <el-input disabled v-model="key" placeholder="建议输入英文"></el-input>
                 </el-form-item>
                 <el-form-item label="中文名">
                     <el-input v-model="desc"></el-input>
