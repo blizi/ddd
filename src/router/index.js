@@ -177,6 +177,12 @@ VueRouter.prototype.push = function push(location) {
           name: 'menu-edit',
           meta: { title: '目录管理', icon: 'edit' }
         },
+        {
+          path: 'menu-al',
+          component: () => import('@/views/viewAL'),
+          name: 'menu-al',
+          meta: { title: '客户案例', icon: 'edit' }
+        }
         // {
         //   path: 'exp-edit-menu',
         //   component: () => import('@/views/editExperienceMenu'),
@@ -243,6 +249,26 @@ VueRouter.prototype.push = function push(location) {
         //   name: 'honor-edit',
         //   meta: { title: 'edit-我们的荣耀', icon: 'edit' }
         // },
+      ]
+    },
+    {
+      path: '/hard',
+      name: 'hard',
+      redirect:'/hard/hard-view',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+      children:[
+        {
+          path: 'hard-view',
+          component: () => import('@/views/viewHard'),
+          name: 'hard-view',
+          meta: { title: '硬件展示-list', icon: 'list' }
+        },
+        {
+          path: 'hard-edit',
+          component: () => import('@/views/editHard'),
+          name: 'hard-edit',
+          meta: { title: 'edit-硬件展示', icon: 'edit' }
+        },
       ]
     }
 ]

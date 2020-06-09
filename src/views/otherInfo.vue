@@ -161,6 +161,7 @@
                 </template>
             </el-table-column>
         </el-table>
+        <el-link type="primary" @click="contact">联系我们</el-link>
     </div>
 </template>
 
@@ -173,6 +174,18 @@
             uploadImag
         },
         methods:{
+            contact(){
+                console.log(this.ardesc)
+                this.$router.push({
+                    name:'article-view',
+                    params:{
+                        content:this.arcontent,
+                        id:this.arid,
+                        title:this.artitle,
+                        desc:this.ardesc
+                    }
+                });
+            },
             handleEditWithImg(index,data){
                 this.updateImg = true;
                 this.fileUrl = data.othValue;
@@ -301,11 +314,20 @@
                     this.imgTableData = res.data.result.link;
                     console.log(res.data.result)
                 })
+            },
+            contactInfo(){
+                $get_header('/admin/article-info/getContact').then(res=>{
+                    console.log(res.data)
+                    this.arcontent = res.data.result.arContent;
+                    this.artitle = res.data.result.arTitle;
+                    this.arid = res.data.result.id;
+                    this.ardesc = res.data.result.arDesc
+                })
             }
         },
         created() {
             this.list();
-
+            this.contactInfo()
         },
         data(){
             return{
@@ -322,7 +344,11 @@
                 update:false,
                 id:'',
                 updateImg:false,
-                fileUrl:''
+                fileUrl:'',
+                artitle:'',
+                ardesc:'',
+                arcontent:'',
+                arid:''
             }
         }
     }

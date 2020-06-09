@@ -3,7 +3,7 @@
             class="upload-demo"
             drag
             :limit = "1"
-            action="http://localhost:8071/upload"
+            :action="uploadAddress"
             :on-success="uploadSuccess"
             name="file"
             list-type="picture"
@@ -11,25 +11,29 @@
     >
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-        <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
+        <div class="el-upload__tip" slot="tip"></div>
     </el-upload>
 </template>
 
 <script>
+    import {upload_URL} from '../config'
     export default {
         name: "uploadImag",
         props:["fileUrl"],
         created() {
+            console.log(upload_URL)
             if(this.fileUrl){
                 this.fileList = [{
                     name:'',
-                    url:this.fileUrl
+                    url:this.fileUrl,
+
                 }]
             }
         },
         data(){
             return{
-                fileList:[]
+                fileList:[],
+                uploadAddress:upload_URL
             }
         },
         methods:{

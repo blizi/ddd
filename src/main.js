@@ -17,6 +17,8 @@ Vue.config.productionTip = false
 Vue.prototype.axios = axios
 Vue.prototype.qs = qs;
 
+Vue.config.devtools = true
+
 //设置路由title
 router.beforeEach((to,from,next)=>{
   if(to.path=='/'&&store.state.token){

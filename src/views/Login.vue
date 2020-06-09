@@ -31,8 +31,6 @@
               </el-form-item>
             </el-form>
           </el-card>
-
-
         </div>
       </div>
     </div>
@@ -42,11 +40,15 @@
 <script>
 // @ is an alias to /src
 
+import {$post_header} from "../api";
+import _this from "../store";
 
 export default {
   name: 'Login',
   components: {
 
+  },
+  created() {
   },
   data() {
     return {
@@ -72,7 +74,7 @@ export default {
           username:this.loginForm.username,
           password:this.loginForm.password
         };
-        this.axios.post('http://localhost:8071/admin/sys-user/login',this.qs.stringify(data)).then(res=>{
+        $post_header('/admin/sys-user/login',this.qs.stringify(data)).then(res=>{
           if(res.data.errorCode=='0000'){
             this.$message({
               showClose: true,

@@ -61,13 +61,20 @@
               <el-menu-item index="8-1" @click="editHonor">编辑</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-<!--          <el-submenu index="9">-->
-<!--            <template slot="title"><i class="el-icon-message"></i>评论管理</template>-->
-<!--            <el-menu-item-group>-->
-<!--              <el-menu-item index="9-1" @click="viewComment">查看</el-menu-item>-->
-<!--&lt;!&ndash;              <el-menu-item index="9-1" @click="editHonor">编辑</el-menu-item>&ndash;&gt;-->
-<!--            </el-menu-item-group>-->
-<!--          </el-submenu>-->
+          <el-submenu index="9">
+            <template slot="title"><i class="el-icon-message"></i>硬件展示</template>
+            <el-menu-item-group>
+              <el-menu-item index="9-1" @click="viewHardWare">查看</el-menu-item>
+<!--              <el-menu-item index="9-1" @click="editHonor">编辑</el-menu-item>-->
+            </el-menu-item-group>
+          </el-submenu>
+
+          <el-submenu index="10">
+            <template slot="title"><i class="el-icon-message"></i>客户案例</template>
+            <el-menu-item-group>
+              <el-menu-item index="10-1" @click="viewAL">查看</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
 
         </el-menu>
       </el-aside>
@@ -132,9 +139,15 @@
       editHonor(){
         this.$router.push('/honor/honor-edit')
       },
-      viewComment(){
-        this.$router.push('/comment/comment-view')
+      viewHardWare(){
+        this.$router.push('/hard/hard-view')
       },
+      viewAL(){
+        this.$router.push('/menu/menu-al')
+      },
+      // viewComment(){
+      //   this.$router.push('/comment/comment-view')
+      // },
       logout(){
         this.$store.commit('updateToken',null);
         this.$store.commit('updateName',null);

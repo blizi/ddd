@@ -9,7 +9,7 @@
                         class="upload-demo"
                         drag
                         :limit = "1"
-                        action="http://localhost:8071/upload"
+                        :action="uploaddress"
                         :on-success="uploadSuccess"
                         name="file"
                         list-type="picture"
@@ -36,9 +36,11 @@
 
 <script>
     import {$post_header,$get_header} from '../api'
+    import {upload_URL} from '../config'
     export default {
         name: "edit",
         created() {
+            console.log(this.uploaddress)
             if(this.id!=''&&this.id>1){
                 this.type = 1;
                 let data = {
@@ -46,7 +48,6 @@
                 };
                 console.log(this.id)
                 $get_header('/admin/rotation/getInfo',data).then(res=>{
-                    console.log(res.data)
                     this.form.desc = res.data.result.rotDesc;
                     if(res.data.result.showed==0){
                         this.show = false
@@ -69,7 +70,8 @@
                 show:true,
                 type:0,
                 fileList:[],
-                imageUrl:''
+                imageUrl:'',
+                uploaddress:upload_URL
             }
         },
         methods: {
@@ -113,6 +115,10 @@
                 console.log(res)
                 if(res.errorCode=='0000'){
                     this.imageUrl = res.result
+                    this.$message.success('上传成功')
+                }else{
+                    this.$message.error('上传失败')
+
                 }
             }
         }

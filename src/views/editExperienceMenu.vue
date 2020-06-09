@@ -15,6 +15,9 @@
                         <el-form-item label="名称">
                             <el-input v-model="form.name"></el-input>
                         </el-form-item>
+                        <el-form-item label="路由">
+                            <el-input v-model="form.router"></el-input>
+                        </el-form-item>
                         <el-form-item label="描述" >
                             <el-input v-model="form.desc"></el-input>
                         </el-form-item>
@@ -40,6 +43,11 @@
                             fixed
                             prop="menDesc"
                             label="描述">
+                    </el-table-column>
+                    <el-table-column
+                            fixed
+                            prop="router"
+                            label="路由">
                     </el-table-column>
                     <el-table-column
                             fixed="right"
@@ -83,7 +91,8 @@
                 dialogFormVisible:false,
                 form: {
                     name: '',
-                    desc: ''
+                    desc: '',
+                    router:''
                 },
                 title:'',
                 type:0,
@@ -127,7 +136,8 @@
                         menName:this.form.name,
                         menDesc:this.form.desc,
                         parentId:this.$route.query.id,
-                        id:this.id
+                        id:this.id,
+                        router:this.form.router
                     };
                     $post_header('/admin/menu/update',this.qs.stringify(data)).then(res=>{
                         if(res.data.errorCode=='0000'){
@@ -147,7 +157,8 @@
                 let data = {
                     menName:this.form.name,
                     menDesc:this.form.desc,
-                    parentId:this.$route.query.id
+                    parentId:this.$route.query.id,
+                    router:this.form.router
                 };
                 $post_header('/admin/menu/insert',this.qs.stringify(data)).then(res=>{
                     if(res.data.errorCode=='0000'){
@@ -165,6 +176,7 @@
                 this.dialogFormVisible = true;
                 this.form.name = a.row.menName;
                 this.form.desc = a.row.menDesc;
+                this.form.router = a.row.router
                 this.id = a.row.id;
                 this.type = 1
             },

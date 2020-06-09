@@ -18,7 +18,6 @@
         name: "viewAllMenu",
         created() {
             $get_header('/admin/nav/getLastNav').then(res=>{
-                console.log(res.data);
                 this.options = res.data.result;
             })
         },

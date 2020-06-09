@@ -41,6 +41,8 @@
             viewcomment
         },
         created() {
+            console.log(this.$route.params)
+
             if(this.$route.params.type){
                 //  add
                 this.subfield = true;
