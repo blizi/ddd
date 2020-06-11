@@ -76,10 +76,18 @@
             </el-menu-item-group>
           </el-submenu>
 
+          <el-submenu index="11">
+            <template slot="title"><i class="el-icon-message"></i>用户管理</template>
+            <el-menu-item-group>
+              <el-menu-item index="11-1" @click="viewUser">查看</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+
         </el-menu>
       </el-aside>
       <el-container>
         <el-header style="text-align: right; font-size: 15px">
+          <el-button icon="el-icon-s-home" size="small" @click="$router.push('/')">首页</el-button>
           <el-dropdown>
             <a href=""><i style="margin-right: 15px" @click="logout">注销</i></a>
           </el-dropdown>
@@ -144,6 +152,9 @@
       },
       viewAL(){
         this.$router.push('/menu/menu-al')
+      },
+      viewUser(){
+        this.$router.push('/user/user-view')
       },
       // viewComment(){
       //   this.$router.push('/comment/comment-view')

@@ -296,15 +296,12 @@
                         this.dialogVisible = false
                         this.list()
                     }else{
-                        this.$message.error('失败')
+                        this.$message.error(res.data.errorMessage)
                     }
                     this.key='';
                     this.value='';
                     this.desc=''
                 });
-
-
-
             },
             list(){
                 $get_header('/admin/other/getList').then(res=>{

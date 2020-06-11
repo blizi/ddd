@@ -270,6 +270,20 @@ VueRouter.prototype.push = function push(location) {
           meta: { title: 'edit-硬件展示', icon: 'edit' }
         },
       ]
+    },
+    {
+      path: '/user',
+      name: 'user',
+      redirect:'/user/user-view',
+      component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue'),
+      children:[
+        {
+          path: 'user-view',
+          component: () => import('@/views/viewUser'),
+          name: 'user-view',
+          meta: { title: '用户-list', icon: 'list' }
+        },
+      ]
     }
 ]
 
