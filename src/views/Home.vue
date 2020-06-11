@@ -156,6 +156,7 @@
       viewUser(){
         this.$router.push('/user/user-view')
       },
+
       // viewComment(){
       //   this.$router.push('/comment/comment-view')
       // },
