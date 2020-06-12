@@ -102,12 +102,22 @@
 </template>
 
 <script>
+  import {$get_header} from "../api";
+
   export default {
     data() {
       return {
         viewData:[],
         tableHead:[]
       }
+    },
+    created() {
+      $get_header('/admin/sys-user/validate').then(res=>{
+        if(res.data.errorCode=='401'){
+          this.$message.error('登录过期，请重新登陆')
+          this.$router.push('/')
+        }
+      })
     },
     methods:{
       //轮播图

@@ -1,11 +1,11 @@
 <template>
   <div id="login">
     <div class="loginConbox">
-      <div class="header">
-        <!--<div class="logo">-->
-        <!--<img src="../../assets/logo.png">-->
-        <!--</div>-->
-      </div>
+<!--      <div class="header">-->
+<!--        &lt;!&ndash;<div class="logo">&ndash;&gt;-->
+<!--        &lt;!&ndash;<img src="../../assets/logo.png">&ndash;&gt;-->
+<!--        &lt;!&ndash;</div>&ndash;&gt;-->
+<!--      </div>-->
       <div class="loginBox">
         <div class="loginCon">
           <p class="title">科技网站管理后台系统</p>
@@ -110,12 +110,15 @@ export default {
 </script>
 <style>
   #login {
+    /*background: url("../assets/logo.png") no-repeat;*/
+    background-image: url('../assets/20200612191101.png');
     width: 100%;
     height: 100%;
-    background-color: #2d3a4b;
+    /*background-color: #2d3a4b;*/
   }
   #login .loginConbox {
-    background: #2d3a4b;
+    /*background: #2d3a4b;*/
+
   }
   #login .header {
     height: 60px;

@@ -8,8 +8,7 @@ import axios from 'axios'
 import qs from 'qs';
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
-
-
+import 'babel-polyfill'
 Vue.use(ElementUI);
 Vue.use(mavonEditor)
 

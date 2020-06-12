@@ -107,18 +107,22 @@
             <el-button type="primary" @click="addRoleToUser">确 定</el-button>
           </span>
         </el-dialog>
-        <el-divider></el-divider>
+        <el-divider>admin</el-divider>
         <UserTree/>
+        <el-divider>普通用户</el-divider>
+        <userTable/>
     </div>
 </template>
 
 <script>
     import {$post_header,$get_header} from "../api";
 import UserTree from "../components/UserTree";
+import userTable from "../components/userTable";
     export default {
         name: "viewUser",
         components:{
-            UserTree
+            UserTree,
+            userTable
         },
         methods:{
             addRole(){
